@@ -9,9 +9,17 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   currentTime
+  newTime
 
   constructor(public navCtrl: NavController) {
     this.currentTime = new Date().getFullYear();
   }
 
+  buttonClicked () {
+    this.newTime = this.getRandomInt(1000,4000);
+  }
+
+  getRandomInt(min,max){
+    return Math.floor(Math.random() * (max-min+1)) + min;
+  }
 }
