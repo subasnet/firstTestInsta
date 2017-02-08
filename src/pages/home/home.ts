@@ -8,8 +8,10 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  currentTime
+
   constructor(public navCtrl: NavController) {
-    
+    this.currentTime = new Date().getFullYear();
   }
 
 }
