@@ -15,7 +15,9 @@ export class HomePage {
   }
 
   login (){
-    this.navCtrl.push(LoginsuccessPage);
+    this.navCtrl.push(LoginsuccessPage, {
+      myString: "Subash"
+    });
   }
 
 }
