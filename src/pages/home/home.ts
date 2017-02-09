@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 
 import {LoginsuccessPage} from '../loginsuccess/loginsuccess';
 
@@ -10,14 +10,23 @@ import {LoginsuccessPage} from '../loginsuccess/loginsuccess';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  receivedData
+
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     
   }
 
   login (){
-    this.navCtrl.push(LoginsuccessPage, {
-      myString: "Subash"
+
+    let modalPage = this.modalCtrl.create(LoginsuccessPage);
+    
+    modalPage.onDidDismiss(data => {
+      this.receivedData = data.dataOne;
     });
+
+    modalPage.present();
+
+  
   }
 
 }
